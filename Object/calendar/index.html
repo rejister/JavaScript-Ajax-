@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
     <title>カレンダー</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/calendar.css">
 </head>
 <body>
-    <script src="Calendar.js"></script>
+    <div id="calendar"></div>
+
+    <!-- カレンダーの形式を決めるためのサンプル-->
+    <div class="calendar">
+        <header>
+            <h2>
+                <span class="year">2025</span>年
+                <span class="month">9</span>月
+            </h2>
+            <div class="week">
+                <div class="week">
+                    <div class="day sun">日</div>
+                    <div class="day mon">月</div>
+                    <div class="day tsu">火</div>
+                    <div class="day wed">水</div>
+                    <div class="day thu">木</div>
+                    <div class="day fri">金</div>
+                    <div class="day sat">土</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="month">
+            <div class="week">
+                <div class="day sun"><span class="cap"> </span></div>
+                <div class="day mon"><span class="cap">1</span></div>
+                <div class="day tsu"><span class="cap">2</span></div>
+                <div class="day wed"><span class="cap">3</span></div>
+                <div class="day thu"><span class="cap">4</span></div>
+                <div class="day fri"><span class="cap">5</span></div>
+                <div class="day sat"><span class="cap">6</span></div>
+            </div>
+            <div class="week">
+                <div class="day sun"><span class="cap">7</span></div>
+                <div class="day mon"><span class="cap">8</span></div>
+                <div class="day tsu"><span class="cap">9</span></div>
+                <div class="day wed"><span class="cap">10</span></div>
+                <div class="day thu"><span class="cap">11</span></div>
+                <div class="day fri"><span class="cap">12</span></div>
+                <div class="day sat"><span class="cap">13</span></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

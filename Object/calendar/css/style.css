@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+html {
+    font-size: 15pt;
+    background: #f7f7fa;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f7f7fa;
+    color: #222;
+}
+
+.calendar {
+    font-size: 0.95em;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1em;
+    margin: 2em auto;
+    max-width: 22em;
+}

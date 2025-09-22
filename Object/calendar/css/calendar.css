@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.calendar {
+    width: 18em;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #fff;
+    margin: 2em auto;
+    padding: 1em;
+}
+
+h2 {
+    text-align: center;
+    margin: 0.5em 0 1em 0;
+    font-size: 1.3em;
+    color: #333;
+    letter-spacing: 0.1em;
+}
+
+.calendar .week {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.calendar .week .day {
+    width: 2.2em;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    padding: 0.35em 0.1em;
+    border-radius: 6px;
+    margin: 0 1px;
+    background: #fafbfc;
+    transition: 0.2s, color 0.2s;
+}
+.calendar .week .day:hover {
+    background: #e3f2fd;
+    color: #1976d2;
+    cursor: pointer;
+}
+
+
+.calendar .week .sun {
+    color: #e53935;
+    font-weight: bold;
+}
+.calendar .week .sat {
+    color: #1976d2;
+    font-weight: bold;
+}
+.calendar .week .mon,
+.calendar .week .tue,
+.calendar .week .wed,
+.calendar .week .thu,
+.calendar .week .fri {
+    color: #333;
+}

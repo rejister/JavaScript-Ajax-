@@ -1,0 +1,41 @@
+/* アナログ時計用スタイル */
+#analog-clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 40px auto;
+}
+#analog-clock .face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+#analog-clock .hand {
+    position: absolute;
+    left: 70%;
+    top: 69%;
+    transform-origin: 50% 100%; /* 針画像の根本が画像の一番下に来るよう調整 */
+    z-index: 2;
+    pointer-events: none;
+}
+#analog-clock .hand.hour {
+    width: 90px;
+    height: 90px;
+    margin-left: -45px;
+    margin-top: -45px;
+}
+#analog-clock .hand.minute {
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+}
+#analog-clock .hand.second {
+    width: 130px;
+    height: 130px;
+    margin-left: -65px;
+    margin-top: -65px;
+}

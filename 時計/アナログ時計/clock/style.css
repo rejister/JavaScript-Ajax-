@@ -1,0 +1,17 @@
+/* デジタル時計用スタイル */
+#clock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+}
+.digit {
+	width: 1.2em;
+	height: 1.7em;
+	margin: 0 0.15em;
+}
+.colon {
+	width: 0.5em;
+	height: 1.7em;
+	margin: 0 0.15em;
+}

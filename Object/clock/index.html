@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時計</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="clock">
+        <p class="text"></p>
+        <div class="image">
+            <img src="image/null.png" alt="" class="hours">
+            <img src="image/null.png" alt="" class="hours">
+            <img src="image/null.png" alt=":">
+            <img src="image/null.png" alt="" class="minutes">
+            <img src="image/null.png" alt="" class="minutes">
+            <img src="image/null.png" alt=":">
+            <img src="image/null.png" alt="" class="seconds">
+            <img src="image/null.png" alt="" class="seconds">
+        </div>
+    </div>
+    <script src="Clock.js"></script>
+    <script src="ImageClock.js"></script>
+<script>
+// 時計を表示し実行する
+//      Clockクラスは"#clock"内に時計を表示する
+const clock = new ImageClock("clock")
+//      startメソッドで動作を開始する
+//      intervalを使い時間を更新する
+clock.start()
+// clock.stop() 時計を停止する
+</script>
+</body>
+</html>

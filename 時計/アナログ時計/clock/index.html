@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時計</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="analog-style.css">
+</head>
+<body>
+    <h1>アナログ時計</h1>
+    <div id="analog-clock">
+        <img class="face" src="../anarog/face.png" alt="clock face">
+        <img class="hand hour" id="hour-hand" src="../anarog/h.png" alt="hour hand">
+        <img class="hand minute" id="minute-hand" src="../anarog/m.png" alt="minute hand">
+        <img class="hand second" id="second-hand" src="../anarog/s.png" alt="second hand">
+    </div>
+    <script src="Clock.js"></script>
+    <script src="analog-clock.js"></script>
+<script>
+// 時計を表示し実行する
+//      Clockクラスは"#clock"内に表示する
+const clock = new Clock("#clock")
+//      startメソッドで動作を開始する
+//      intervalを使って時間を更新する
+clock.start()
+// clock.stop() //時計を停止する
+</script>
+</body>
+</html>

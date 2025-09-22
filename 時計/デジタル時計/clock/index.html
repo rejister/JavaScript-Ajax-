@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時計</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>デジタル時計</h1>
+    <div id="clock">
+        <img class="digit" id="h1" src="../dezital/0.PNG" alt="0">
+        <img class="digit" id="h2" src="../dezital/0.PNG" alt="0">
+        <img class="colon" id="colon1" src="../dezital/conma.png" alt=":">
+        <img class="digit" id="m1" src="../dezital/0.PNG" alt="0">
+        <img class="digit" id="m2" src="../dezital/0.PNG" alt="0">
+        <img class="colon" id="colon2" src="../dezital/conma.png" alt=":">
+        <img class="digit" id="s1" src="../dezital/0.PNG" alt="0">
+        <img class="digit" id="s2" src="../dezital/0.PNG" alt="0">
+    </div>
+    <script src="Clock.js"></script>
+<script>
+// 時計を表示し実行する
+//      Clockクラスは"#clock"内に表示する
+const clock = new Clock("#clock")
+//      startメソッドで動作を開始する
+//      intervalを使って時間を更新する
+clock.start()
+// clock.stop() //時計を停止する
+</script>
+</body>
+</html>

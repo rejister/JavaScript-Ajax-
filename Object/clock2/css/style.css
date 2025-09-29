@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "ds-digi";
+    src: url("DS-DIGII.TTF") format("truetype");
+}
+
+html {
+    font-size: 16pt;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#clock {
+    font-family: ds-digi;
+    font-size: 3em;
+    background-color: black;
+    color: lemonchiffon;
+    padding: 0 0.2em;
+    width: max-content;
+    height: min-content;
+}
+
+#clock p {
+    margin: 0;
+}
+
+#base {
+    position: relative;
+}
+
+.face {
+    position: absolute; 
+    top: 15px;
+    left: 15px;
+}
+
+.hourHand {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.minuteHand {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.secondHand {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+

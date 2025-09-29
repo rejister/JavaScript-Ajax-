@@ -1,0 +1,12 @@
+/* css/analog.css*/
+@charset "UTF-8";
+
+#clock_face {
+    width: 4em;
+    height: 4em;
+}
+
+#clock_face img {
+    width: inherit;
+    height: inherit;
+}

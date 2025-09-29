@@ -1,6 +1,36 @@
 "use strict"
 
-class Calender {
+
+class Calendar {
+    // テンプレートから読み込んだ属性
+    #base
+    #header
+    #month
+    #week
+    #day
+    // テンプレートを読み込むメソッド
+    //      filename = "./template.html"      :引数が省略された時の値
+    loadTemplate(filename = "./template.html") {
+        fetch(filename)
+        .then(response => response.text())  // → 読み込み完了時のイベント
+        .then(html => {                     // → 上記の続き受け取った本文を処理
+            // 読み込んだテンプレート文字列をパースし、DOMに変換する
+            const parser = new DOMParser()
+            const template = parser.parseFromString(html, "text/html")
+                .querySelector("div.calendar")
+
+            this.#base = template.cloneNode(false)
+            this.#header = template.querySelector("header").cloneNode(true)
+            this.#month = template.querySelector("div.month").cloneNode(false)
+            this.#week = template.querySelector("div.month .week").cloneNode(false)
+            this.#day = template.querySelector("div.month div.day").cloneNode(true)
+
+            // console.log(template)
+        })
+        .catch(error => {                   // → 読み込みに失敗
+            console.log(filename, 'の読み込みに失敗しました', error)
+        })
+    }
     element  // カレンダーを展開するエレメント
     today    // 今日の日付を持つ
     year     // 表示年
@@ -55,6 +85,21 @@ class Calender {
         // this.year年 this.month月の末日を求める。(翌月の0日目)
         const endDate = new Date(this.year, this.month + 1, 0)
 
+        const base = this.#base.cloneNode(false)
+
+        const header = this.#header.cloneNode(true)
+        header.querySelector(".year").innerText = this.year
+        header.querySelector(".month").innerText = this.month + 1
+
+        // baseの子要素にheaderを追加する
+        base.appendChild(header)
+        // 現在の内容を空にする
+        this.element.innerText = ""
+        this.element.appendChild(base)
+
+        return
+
+
         // constは書き換えができない定数
         // 2個以上の月は処理しないので定数とする
         const month = document.createElement("div")
@@ -64,7 +109,7 @@ class Calender {
         let week = document.createElement("div")
         week.classList.add("week")      // クラスに「week」を追加する
 
-        // 月に秋を追加する
+        // 月に週を追加する
         month.appendChild(week)
         // 1ヶ月の繰り返し処理
         while (startDate <= endDate) {

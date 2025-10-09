@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+.calendar {
+    width: max-content;
+    border: 2px solid gray;
+    border-radius: 0.4em;
+    padding: 0.4em;
+}
+
+
+.calendar h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+
+.calendar .week {
+    display: flex;
+}
+
+
+.calendar .week .day {
+    width: 2em;
+    border: 1px solid gray;
+    padding: 0.2em 0.1em;
+    text-align: center;
+}
+
+
+.calendar .week .day .cap {
+    /* display: inline-block;
+    width: 2em;
+    border: 1px solid gray;
+    text-align: center; */
+}

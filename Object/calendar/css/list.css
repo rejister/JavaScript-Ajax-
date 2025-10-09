@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+.calendar {
+    width: max-content;
+    border: 2px solid gray;
+    border-radius: 0.4em;
+    padding: 0.4em;
+}
+
+.calendar h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.calendar .week {
+}
+
+.calendar .week .day {
+    display: flex;
+    width: 30em;
+    border: 1px solid gray;
+    padding: 0.2em 0.1em;
+}
+
+.calendar .week .day > span {
+    display: block;
+}
+
+.calendar .week .day .ym {
+    text-align: center;
+    width: 8em;
+}
+
+.calendar .week .day .cap {
+    width: 2em;
+    text-align: center;
+}
+
+.calendar .week .day .w-cap {
+    width: 1.6em;
+    text-align: center;
+}
+
+.calendar .week .day .contents {
+    width: 100%;
+}

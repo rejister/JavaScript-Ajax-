@@ -52,18 +52,20 @@ class Calendar {
         { class: "fri", caption: "金" },    // 0
         { class: "sat", caption: "土" },    // 0
     ]
+    //  2025/10/16 複数のカレンダーを配置するとidが重複する問題に対応
+    id          // カレンダーを展開するエレメントのid
     element     // カレンダーを展開するエレメント
     today       // 今日の日付を持つDateインスタンス
     year        // 表示年
-    // monthプロパティをgetter、setterに置き換える
+    // 2025-10-06 変更 monthプロパティを getter、setterに置き換える
     #month_val      // 表示月
     get month() {
         return this.#month_val
     }
     set month(m) {
-        // y/m/1の日付を構築する
+        //  y/m/1の日付を構築する
         const w = new Date(this.year, m, 1)
-        // 構築した日付の年と月を属性に割り当てる
+        //  構築した日付の年と月を属性に割り当てる
         this.year = w.getFullYear();
         this.#month_val = w.getMonth();
     }
@@ -80,6 +82,8 @@ class Calendar {
             console.log("idが指定されていません")
             return
         }
+        //  2025/10/16 idを属性にセットする
+        this.id = id
         // 今日日付のインスタンスを属性にセットする
         const d = new Date()            // 時分秒までの値を持っている
         // 「今日 00:00:00」のインスタンスを生成し属性に割り当てる
@@ -124,7 +128,8 @@ class Calendar {
     }
 
     //  指定されたエレメント内にカレンダーを構築する
-    build() {
+    //      callback:カレンダーが出来上がった後に呼ばれる処理
+    build(callback) {
         // this.year年 this.month月の月初を求める
         const startDate = new Date(this.year, this.month, 1)
         // this.year年 this.month月の末日を求める。(翌月の0日目)
@@ -165,7 +170,8 @@ class Calendar {
         while (startDate <= endDate) {
             const day = this.#day.cloneNode(true)
             // 処理日付をセルのIDとして設定する
-            day.setAttribute("id", this.toDateString(startDate))
+            //  2025/10/16 日セルidに展開するidで修飾する
+            day.setAttribute("id", this.id + '-' + this.toDateString(startDate))
             // 処理日が本日かどうかを判断する
             if (startDate.getTime() == this.today.getTime()) {
                 day.classList.add("today")
@@ -219,6 +225,11 @@ class Calendar {
         //  新しく組み上がったカレンダーを割り当てる
         this.element.appendChild(base)
 
+        // 2025/10/16 カレンダーが組み上がった後にコールバック処理を行うように修正
+        if (callback !== undefined) {
+            callback(this)
+        }
+
         return
 
         //  constは書き換えが出来ない定数
@@ -255,12 +266,12 @@ class Calendar {
         // 1ヶ月分組み上がったので追加する
         this.element.appendChild(month)
     }
-    // 次の月へ
-    next(){
+    //  次の月へ
+    next() {
         this.month += 1
     }
-    // 前の月へ
-    previous(){
+    //  前の月へ
+    previous() {
         this.month -= 1
     }
 }

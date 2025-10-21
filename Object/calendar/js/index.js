@@ -6,9 +6,9 @@
 //      今月の一覧形式のカレンダー
 const cal_list = new Calendar("list-calendar")
 //      前月のグリッド形式のカレンダー
-const cal_prev = new Calendar("cal_prev",cal_list.year,cal_list.month-1)
+const cal_prev = new Calendar("cal_prev", cal_list.year, cal_list.month - 1)
 //      次月のグリッド形式のカレンダー
-const cal_next = new Calendar("cal_next",cal_list.year,cal_list.month+1)
+const cal_next = new Calendar("cal_next", cal_list.year, cal_list.month + 1)
 
 // 使用するテンプレート
 const template_name = "template.html"
@@ -43,15 +43,27 @@ window.onload = e => {
         //  カレンダーを組み立てる
         cal_next.build()
     }
+
+    //  天気予報を割り当てるコールバック関数
+    const weather = (cal) => {
+        // 本日の天気予報日付を取得する
+        const wd = new Date(forecast.forecasts[0].date)
+        const id = cal.id + "-" + cal.toDateString(wd)
+        console.log("callback id", id)
+    }
+
     cal_list.onload = () => {
-        cal_list.build()
+        // 2025/10/16 コールバックを呼ぶ
+        // cal_list.build()
+        cal_list.build(weather)
     }
 
     //  2025-10-06 月移動機能追加
     //      次の月へ移動
     cal_next.element.onclick = e => {
         cal_list.next()
-        cal_list.build()
+        // cal_list.build()
+        cal_list.build(weather)
         cal_prev.next()
         cal_prev.build()
         cal_next.next()
@@ -60,12 +72,14 @@ window.onload = e => {
     //      次の月へ移動
     cal_prev.element.onclick = e => {
         cal_list.previous()
-        cal_list.build()
+        // cal_list.build()
+        cal_list.build(weather)
         cal_prev.previous()
         cal_prev.build()
         cal_next.previous()
         cal_next.build()
     }
+
 }
 
 // // jQuery

@@ -1,0 +1,2 @@
+#    .gitignore Gitのバージョン管理の対象から外すフォルダ/ファイルを指定する
+node_modules/
